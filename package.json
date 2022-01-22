@@ -1,0 +1,27 @@
+{
+  "name": "uutisahti",
+  "version": "1.0.0",
+  "description": "The backend of UutisAhti",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server",
+    "dev": "nodemon server"
+  },
+  "author": "Hakorr",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "express-rate-limit": "^6.1.0",
+    "multer": "^1.4.4",
+    "request": "^2.88.2",
+    "tesseract.js": "^2.1.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "engines": {
+    "node": "16.x"
+  }
+}
