@@ -52,7 +52,7 @@ The basic npm commands start the application.
 
 * Front-end & back-end both start with `npm start`
 
-The front-end auto refreshes, however the back-end needs an restart for changes to appear.
+The front-end auto refreshes, however the back-end needs a restart for changes to appear.
 
 ## Important notes
 
