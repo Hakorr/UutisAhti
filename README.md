@@ -1,4 +1,4 @@
-<img src="https://github.com/Hakorr/UutisAhti/blob/master/assets/big_logo.png" alt="logo" style="width:350px"/>
+<a href="https://uutisahti.herokuapp.com"><img src="https://github.com/Hakorr/UutisAhti/blob/master/assets/big_logo.png" alt="logo" style="width:350px"/></a>
 
 # A Finnish News Article Mass Searcher
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
