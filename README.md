@@ -1,8 +1,13 @@
-# UutisAhti - A Finnish News Article Mass Searcher
+<img src="https://github.com/Hakorr/UutisAhti/blob/master/assets/big_logo.png" alt="logo" style="width:350px"/>
+
+# A Finnish News Article Mass Searcher
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 
 There's no need to ponder which site a quote was taken from, or if a screenshot of an article was modified, anymore. UutisAhti helps people to find articles with a click of a button. Users can input either text or an image.
 
-UutisAhti uses the site's search API to find results. It uses a basic scoring system based the amount of sentences found, and their lengths. The system perfoms poorly if the site's search API returns unmatching results. This is unfortunetaly the case for many Finnish news article sites, many don't even have an API in the first place. 
+UutisAhti uses the site's search API to find results. It uses a basic scoring system based the amount of sentences found, and their lengths. The system perfoms poorly if the site's search API returns unmatching results. This is unfortunetaly the case for many Finnish news sites, many don't even have an API in the first place. 
 
 ## Example use case
 
@@ -47,7 +52,7 @@ The basic npm commands start the application.
 
 * Front-end & back-end both start with `npm start`
 
-The front-end auto refreshes, however the back-end needs an restart for changes to appear.
+The front-end auto refreshes, however the back-end needs a restart for changes to appear.
 
 ## Important notes
 
