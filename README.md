@@ -60,4 +60,4 @@ A subreddit (specifically r/Suomi) had an image containing a piece of an article
 
 ## Important notes
 
-If you're a professional developer, approach the project carefully, as this was my first front-end, back-end and fullstack development project. You will find some oddities in file structure and the code itself. I hope you understand, and don't lose your calm.
+If you're a professional developer, approach the project carefully, as this was my first front-end, back-end and full stack development project. You will find some oddities in file structure and the code itself. I hope you understand, and don't lose your calm.
