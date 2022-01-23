@@ -32,6 +32,8 @@ A subreddit (specifically r/Suomi) had an image containing a piece of an article
 #### Front-end (React)
 
 * axios
+* react-dropzone
+* react-wavify
 
 #### Back-end (Node.js)
 
@@ -44,15 +46,17 @@ A subreddit (specifically r/Suomi) had an image containing a piece of an article
 
 ## Configuration & Development
 
-To get UutisAhti working on your local machine, you'll need to change one thing.
+* To get UutisAhti working on your local machine, you'll need to change one thing.
 
-* Navigate to `client/src/Config.js` & change the backend's value to localhost:5000
+  * Navigate to `client/src/Config.js` & change the backend's value to localhost:5000
 
-The basic npm commands start the application.
+* The basic npm commands start the application.
 
-* Front-end & back-end both start with `npm start`
+  * Front-end & back-end both start with `npm start`
 
-The front-end auto refreshes, however the back-end needs a restart for changes to appear.
+* The front-end auto refreshes, however the back-end needs a restart for changes to appear.
+
+* If you make changes to the front-end and want to run the site on Heroku, use `npm run build` beforehand.
 
 ## Important notes
 
