@@ -165,56 +165,69 @@ const pushArticleToFinalResult = article => {
     }
 };
 
+const startSearch = (data, callback) => {
+    console.log("Starting the mass article search...\n");
+    let searchStrings = TextFormatter.cleanOcrResult(data);
+
+    if(searchStrings.length == 0) {
+        console.log("Aborting, found no text.");
+        callback({
+            'success': 0,
+            'reason': "No text was detected"
+        });
+        return;
+    }
+    
+    else if(searchStrings.length > 10) {
+        console.log("Aborting, user tried to search too many strings.");
+        callback({
+            'success': 0,
+            'reason': "You're trying to search too many strings"
+        });
+        return;
+    }
+
+    //For each site
+    siteList.forEach(site => {
+        checkAuthentication(
+            searchStrings, 
+            site.siteSettings, 
+            callback
+        );
+    });
+};
+
 const initiateSearch = (data, mode, callback) => {
     //Reset the finalResults variable
     finalResults = [];
     cb = callback;
 
-    if(mode == 'image') {
-        OCR.read(data, ocrResultStr => {
-            //Remove the image file for server
-            fs.stat(data, (err, stats) => {
-                if (err) return console.error(err);
-                
-                fs.unlink(data, err => {
-                    if(err) return console.log(err);
+    switch(mode) {
+        case "image":
+            OCR.read(data, ocrResultStr => {
+                //Remove the image file for server
+                fs.stat(data, (err, stats) => {
+                    if (err) return console.error(err);
+                    
+                    fs.unlink(data, err => {
+                        if(err) return console.log(err);
+                    });
                 });
+                startSearch(ocrResultStr, callback);
             });
-    
-            console.log("Starting the mass article search...\n");
-            let searchStrings = TextFormatter.cleanOcrResult(ocrResultStr);
-            if(searchStrings.length == 0) callback({
-                'success': 0,
-                'reason': "No text was detected"
-            });
-    
-            //For each site
-            siteList.forEach(site => {
-                checkAuthentication(
-                    searchStrings, 
-                    site.siteSettings, 
-                    callback
-                );
-            });
-        });
-    }
-    
-    else if (mode == 'text') {
-        console.log("Starting the mass article search...\n");
-        let searchStrings = TextFormatter.cleanOcrResult(data);
-        if(searchStrings.length == 0) callback({
-            'success': 0,
-            'reason': "No text was detected"
-        });
+            break;
 
-        //For each site
-        siteList.forEach(site => {
-            checkAuthentication(
-                searchStrings, 
-                site.siteSettings, 
-                callback
-            );
-        });
+        case "text":
+            startSearch(data, callback);
+            break;
+
+        default:
+            console.log("No correct type was specified");
+            callback({
+                'success': 0,
+                'reason': "Internal server error"
+            });
+            break;
     }
 };
 

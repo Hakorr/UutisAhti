@@ -148,17 +148,22 @@ const Page = () => {
                 );
                 setFetching(false);
 
-                switch(error.response.status) {
-                    case 429:
-                        alert(`${configStrings.request_ratelimit_error}`);
-                        break;
-                    default:
-                        alert(`${configStrings.unknown_request_error}\n\n${error.response.status}: ${error.response.statusText}`);
-                        break;
+                try {
+                    switch(error.response.status) {
+                        case 429:
+                            alert(`${configStrings.request_ratelimit_error}`);
+                            break;
+                        default:
+                            alert(`${configStrings.unknown_request_error}\n\n${error.response.status}: ${error.response.statusText}`);
+                            break;
+                    }
+                } catch(err) {
+                    alert(`${configStrings.unknown_request_error}\n\n${err}`);
                 }
             });
         }
         
+        //If no image or text
         else {
             console.log("No data found.");
             alert(configStrings.no_data_set);

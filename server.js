@@ -47,19 +47,25 @@ if(process.env.NODE_ENV == "production") {
 app.post("/api/search", upload.single('image'), limitRequests, (req, res) => {
     console.log("\nReceived an API request to mass search articles...");
     let imagePath = req?.file?.path;
+
     if(imagePath) {
         ArticleHandler.initiateSearch(imagePath, 'image', result => {
             console.log("\nResponding to the API call!");
             res.json(result);
         });
-    } else  {
+    }
+    
+    else  {
         let reqText = req.body?.text;
+
         if(reqText) {
             ArticleHandler.initiateSearch(reqText, 'text', result => {
                 console.log("\nResponding to the API call!");
                 res.json(result);
             });
-        } else {
+        }
+        
+        else {
             console.log("Aborting! Neither text or image was found on the request.")
             res.json({
                 'success': 0,
