@@ -32,6 +32,8 @@ A subreddit (specifically r/Suomi) had an image containing a piece of an article
 #### Front-end (React)
 
 * axios
+* react-dropzone
+* react-wavify
 
 #### Back-end (Node.js)
 
