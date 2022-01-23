@@ -178,7 +178,7 @@ const startSearch = (data, callback) => {
         return;
     }
     
-    else if(searchStrings.length > 10) {
+    else if(searchStrings.length > Settings.config.searchSentenceAmountLimit) {
         console.log("Aborting, user tried to search too many strings.");
         callback({
             'success': 0,
