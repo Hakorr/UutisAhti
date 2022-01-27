@@ -58,22 +58,26 @@ const Page = () => {
     };
 
     const handleResults = articles => {
-        let cleared = articles.filter(article => article.score != 0);
-        if(cleared.length > 0) {
-            for(let i = 0; i < cleared.length; i++) {
-                (i == 0) 
-                    ? cleared[i]["bestArticle"] = true
-                    : cleared[i]["bestArticle"] = false;
-                let reversedIndex = (cleared.length - i == cleared.length) 
+        let clearedArticles = articles.filter(article => article.score != 0);
+
+        if(clearedArticles.length > 0) {
+            let bestScore = clearedArticles[0]["score"];
+
+            for(let i = 0; i < clearedArticles.length; i++) {
+                (clearedArticles[i]["score"] == bestScore)
+                    ? clearedArticles[i]["bestArticle"] = true
+                    : clearedArticles[i]["bestArticle"] = false;
+                let opacity = (clearedArticles[i]["score"] == bestScore) 
                     ? 1 
-                    : (cleared.length - i) / 10;
+                    : (clearedArticles.length - i) / 10;
     
-                cleared[i]["frameOpacity"] = reversedIndex;
+                clearedArticles[i]["frameOpacity"] = opacity;
             }
             setResultsLabelStyle({ visibility: "visible" });
             window.location.replace("/#results");
-            return cleared;
+            return clearedArticles;
         }
+
         else {
             console.log("No articles were found!");
             
