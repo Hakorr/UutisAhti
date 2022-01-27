@@ -199,7 +199,7 @@ const Page = () => {
             </div>
             <p className="tip">{configStrings.instructions}</p>
             <div className="bottompanel">
-                <div className="selectedinput"><p className="inputinfo">{inputInfo}</p></div>
+                <div className="selectedinput"><span className="inputinfo">{inputInfo}</span></div>
                 <button className="fetchButton"onClick={startSearch}>{configStrings.fetch_button_search}</button>
             </div>
         </div>

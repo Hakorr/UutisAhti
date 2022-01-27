@@ -106,7 +106,7 @@ input:focus, textarea:focus{
     padding: 5px;
     display: flex;
     margin-left: 10%;
-    background: rgb(255,255,255);
+    padding-left: 10px;
     background: linear-gradient(180deg, rgba(255,255,255,1) 20%, rgba(236,236,236,1) 100%);
 }
 .selectedinput {
@@ -115,6 +115,7 @@ input:focus, textarea:focus{
     border-radius: 4px;
     margin-right: 5px;
     color: #8b8b8b;
+    position: relative;
 }
 .fetchButton {
     color: rgb(255, 255, 255);
@@ -134,13 +135,14 @@ input:focus, textarea:focus{
     outline: inherit;
 }
 .inputinfo {
-    margin: 17px 0px;
     overflow: hidden;
     text-overflow: ellipsis;
     line-height: 1em;
     max-height: 2em;
-    margin-left: 10px;
-    display: block;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
 }
 @media only screen and (min-width: 830px) {
     .inputbox-area {
