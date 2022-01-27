@@ -14,16 +14,41 @@ const validSentences = strArr => {
     return result;
 };
 
-/*  Tessearct tries to read images inside the image, which causes random sentences like '$ d --== €% a v' 
--> This function tries to remove those, returns an array of strings (which will be later inputted to the site's search API) */
-const cleanOcrResult = str => {
+const splitByCapitalLetters = str => {
     ['\n','.'].forEach(x => {
         // Remove the char
         str = str.replaceAll(x, " ")
-    })
-    strArr = str.split(/(?=[A-Z])/); // Split by sentences
+    });
+
+    let strArr = str.split(/(?=[A-Z])/); // Split by capital letters
+
     strArr = strArr.filter(x => x.length > 10);
     strArr = validSentences(strArr);
+
+    return strArr;
+};
+
+const splitBySentences = str => {
+    let strArr = str.split('.'); // Split by dots
+
+    strArr = str.split('\n'); // Split by new lines
+    strArr = strArr.filter(x => x.length > 10);
+    strArr = validSentences(strArr);
+    ['\n','.'].forEach(x => {
+        strArr = strArr.map(str => str.replaceAll(x, " "));
+    });
+
+    return strArr;
+};
+
+/*  Tessearct tries to read images inside the image, which causes random sentences like '$ d --== €% a v' 
+-> This function tries to remove those, returns an array of strings (which will be later inputted to the site's search API) */
+const cleanOcrResult = str => {
+    let strArr = splitByCapitalLetters(str);
+    splitBySentences(str).forEach(x => {
+        strArr.push(x);
+    });
+
     return strArr;
 };
 
