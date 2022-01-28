@@ -9,13 +9,13 @@ There's no need to ponder which site a quote was taken from, or if a screenshot 
 
 UutisAhti uses the site's search API to find results. It uses a basic scoring system based the amount of sentences found, and their lengths. The system perfoms poorly if the site's search API returns unmatching results. This is unfortunetaly the case for many Finnish news sites, many don't even have an API in the first place. 
 
-## Example use case
+## Example Use Case
 
 A subreddit (specifically r/Suomi) had an image containing a piece of an article, by downloading the image and using UutisAhti, I was able to get the exact article the screenshot was taken from. If you're curious, [here's the article](https://www.iltalehti.fi/ulkomaat/a/8cc1a2b7-9c4c-4a8b-8f08-e93f97543be3).
 
 <img src="https://github.com/Hakorr/UutisAhti/blob/master/assets/example.png" alt="example" style="width:700px;"/>
 
-## Currently supported sites
+## Currently Supported Sites
 
 * Aamulehti
 * Helsingin Sanomat
@@ -58,6 +58,11 @@ A subreddit (specifically r/Suomi) had an image containing a piece of an article
 
 * If you make changes to the front-end and want to run the site on Heroku, use `npm run build` beforehand.
 
-## Important notes
+## Future Plans
+
+* If the news sites start applying harsh ratelimits, might need to implement proxies for the requests.
+* Possibly adding more news sites to search from.
+
+## Important Notes
 
 If you're a professional developer, approach the project carefully, as this was my first front-end, back-end and full stack development project. You will find some oddities in file structure and the code itself. I hope you understand, and don't lose your calm.
