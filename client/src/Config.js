@@ -1,5 +1,5 @@
 const config = {
-    backend: 'https://uutisahti.herokuapp.com/', //for local development use: http://localhost:5000
+    backend: 'https://uutisahti.herokuapp.com', //for local development use: http://localhost:5000
     language: 'en',
     strings: {
         'fi': {
