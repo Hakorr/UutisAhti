@@ -2,6 +2,7 @@
     width: 1018px;
     margin: auto;
 }
+
 .articleFrame {
     border-radius: 5px;
     height: 120px;
@@ -11,6 +12,7 @@
     padding: 8px 8px;
     cursor: pointer;
 }
+
 .articleTitle {
     text-align: left;
     vertical-align: top;
@@ -21,6 +23,7 @@
     font-weight: 800;
     text-decoration: none;
 }
+
 .articleInfo {
     text-align: left;
     vertical-align: top;
@@ -32,6 +35,7 @@
     white-space: nowrap;
     font-weight: 100;
 }
+
 .articleImage {
     width: 100%;
     height: 100%;
@@ -45,25 +49,8 @@
     border: dashed 2px #000;
     object-fit: cover;
 }
-.regularArticle {
-    padding: 10px;
-    border-radius: 10px;
-    width: min-content;
-    height: min-content;
-    margin: auto;
-    width: 400px;
-}
-.bestArticle {
-    padding: 10px;
-    border: dashed 2px white;
-    border-radius: 10px;
-    width: min-content;
-    height: min-content;
-    margin: auto;
-    margin-bottom: 15px;
-    width: 400px;
-}
-.container {
+
+.articleContainer {
     display: grid;
     grid-template-columns: 100%;
     grid-column-gap: 0;
@@ -72,21 +59,18 @@
     border-radius: 5px;
     padding: 5px;
     height: max-content;
+    margin-bottom: 10px;
 }
+
 .articleInfoContainer {
     padding: 3px;
 }
+
 @media only screen and (min-width: 995px) {
-    .container {
+    .articleContainer {
         grid-template-columns: 200px 700px;
         grid-column-gap: 10px;
         grid-row-gap: 40px;
         justify-content: center;
-    }
-    .regularArticle {
-        width: min-content;
-    }
-    .bestArticle {
-        width: min-content;
     }
 }

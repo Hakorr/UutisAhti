@@ -7,23 +7,19 @@ import Config from './Config';
 import './Page.css';
 
 // Most of the code probably needs some refactoring, prepare yourself if you're a React developer
+// At least need to split the page to smaller sections..
 
 const Page = () => {
     const configStrings = Config.strings[Config.language];
     const defaultInputInfo = configStrings.no_input;
     
     const [inputInfo, setInputInformation] = useState(defaultInputInfo);
+    const [articles, setArticles] = useState([]);
     const [inputData, setInputData] = useState("");
     const [files, setFiles] = useState([]);
     const [lastUsedInput, setLastUsedInput] = useState("");
     const [fetching, setFetching] = useState(false);
-    const [resultsLabelStyle, setResultsLabelStyle] = useState({
-        'visibility': 'hidden'
-    });
-
-    const [articles, setArticles] = useState(() => {
-        return [];
-    });
+    const [resultsLabelStyle, setResultsLabelStyle] = useState({'visibility': 'hidden'});
 
     const { getRootProps, getInputProps } = useDropzone({
         accept: "image/*",
@@ -210,20 +206,38 @@ const Page = () => {
     </div>
     <div className="fill"/>
     <Wave fill='#0099ff' paused={false}/>
-    <p id="results" style={resultsLabelStyle}>{configStrings.results}</p>
-    <div className="resultContainer">
-        {
-            articles.map(article =>
-                <ArticleResult
-                    bestArticle={article.bestArticle}
-                    frameOpacity={article.frameOpacity}
-                    title={article.title} 
-                    article_url={article.url} 
-                    image_url={article.img_url} 
-                    info={`${article?.site} | ${article?.category} | ${article?.score} ${configStrings.points}`}
-                />
-            )
-        }
+    <div className="resultContainer" style={resultsLabelStyle}>
+        <p id="results">{configStrings.results}</p>
+        <p className="bestResultText">{configStrings.most_relevant_results}</p>
+        <div className="bestResultContainer">
+            {
+                articles.map(article => {
+                    if(article.bestArticle)
+                        return <ArticleResult
+                            frameOpacity={article.frameOpacity}
+                            title={article.title}
+                            article_url={article.url} 
+                            image_url={article.img_url} 
+                            info={`${article?.site} | ${article?.category} | ${article?.score} ${configStrings.points}`}
+                        />
+                })
+            }
+        </div>
+        <div className="regularResultContainer">
+            <p className="regularResultText">{configStrings.other_results}</p>
+            {
+                articles.map(article => {
+                    if(!article.bestArticle)
+                        return <ArticleResult
+                            frameOpacity={article.frameOpacity}
+                            title={article.title} 
+                            article_url={article.url} 
+                            image_url={article.img_url} 
+                            info={`${article?.site} | ${article?.category} | ${article?.score} ${configStrings.points}`}
+                        />
+                })
+            }
+        </div>
     </div>
     </>
     );

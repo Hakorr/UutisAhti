@@ -1,24 +1,27 @@
 import React from 'react';
 import './ArticleResult.css';
 
-const ArticleResult = ({ frameOpacity, bestArticle, title, article_url, image_url, info }) => {
+const ArticleResult = ({ frameOpacity, title, article_url, image_url, info }) => {
     const frameStyle = {
         "opacity": frameOpacity
     }
-    const articleType = bestArticle ? "bestArticle" : "regularArticle";
-
+    const imageURL = 
+        image_url == undefined
+            ? "logo512.png"
+            : image_url.includes("undefined") 
+                ? "logo512.png"
+                : image_url;
+        
     return (
-    <div className={articleType}>
-        <div className="container" style={frameStyle}>
-            <div className="articleImgContainer">
-                <img className="articleImage" src={image_url}/>
-            </div>
-            <div className="articleInfoContainer">
-                <a className="articleTitle" href={article_url} target="_blank" rel="noopener">
-                    {title}
-                    <p className="articleInfo">{info}</p>
-                </a>
-            </div>
+    <div className="articleContainer" style={frameStyle}>
+        <div className="articleImgContainer">
+            <img className="articleImage" src={imageURL}/>
+        </div>
+        <div className="articleInfoContainer">
+            <a className="articleTitle" href={article_url} target="_blank" rel="noopener">
+                {title}
+                <p className="articleInfo">{info}</p>
+            </a>
         </div>
     </div>
     );

@@ -1,9 +1,9 @@
 const config = {
-    backend: 'https://uutisahti.herokuapp.com', //for local development use: http://localhost:5000
+    backend: 'https://uutisahti.herokuapp.com/', //for local development use: http://localhost:5000
     language: 'en',
     strings: {
         'fi': {
-            main_title: "Uutisten massahakija",
+            main_title: "Uutisten Massahakija",
             secondary_title: "Löydä uutiset vaivatta",
             no_input: "Ei vielä tiedostoa tai tekstiä",
             no_data_set: "Et ole vielä syöttänyt tekstiä tai tiedostoa!",
@@ -15,6 +15,8 @@ const config = {
             request_pending: "Lähetimme pyynnön, odota...",
             error_request_in_progress: "Viimeinen pyyntösi on vielä kesken, odota hetki...",
             no_results: "Yhtään artikkelia ei löytynyt!",
+            most_relevant_results: "Osuvimmat artikkelit",
+            other_results: "Muut artikkelit",
             text_input_placeholder: "Pätkä uutisesta tähän...",
             drag_and_drop: "Vedä & Pudota",
             drag_and_drop_filetype: "Ainoastaan kuvia",
@@ -37,6 +39,8 @@ const config = {
             request_pending: "Request has been sent, please wait...",
             error_request_in_progress: "Your last request is still processing, please wait a bit...",
             no_results: "No articles were found!",
+            most_relevant_results: "Most relevant articles",
+            other_results: "Other articles",
             text_input_placeholder: "A piece from the article here...",
             drag_and_drop: "Drag & Drop",
             drag_and_drop_filetype: "Only pictures",
