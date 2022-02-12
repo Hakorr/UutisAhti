@@ -7,9 +7,9 @@ const ArticleResult = ({ frameOpacity, title, article_url, image_url, info }) =>
     }
     const imageURL = 
         image_url == undefined
-            ? "logo512.png"
+            ? "placeholder.png"
             : image_url.includes("undefined") 
-                ? "logo512.png"
+                ? "placeholder.png"
                 : image_url;
         
     return (
